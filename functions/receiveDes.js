@@ -8,10 +8,11 @@ export async function onRequest(context) {
   }
 
   try {
+    // Insert the data into the database.
     await context.env.DB.prepare(`INSERT INTO dmails (sender, subject, body) VALUES (?1, ?2, ?3)`)
       .bind(data.sender, data.subject, data.body).run();
   } catch (dbError) {
-    console.log('Database error:', dbError.message);
+    // Respond with the database error.
     return new Response(JSON.stringify({ message: dbError.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 

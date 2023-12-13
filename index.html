@@ -19,25 +19,21 @@
 
   <div class="container">
 
-    <form id="sendDes" action="/sendDes" method="POST">
-      <div class="form-group" style="display: none;">
-        <label for="sender">Sender:</label>
-        <input type="text" class="form-control" name="sender" value="desmond-1ov.pages.dev">
-      </div>
+    <section>
       <div class="form-group">
         <label for="sender">Destination:</label>
-        <input type="text" class="form-control" name="destination">
+        <input type="text" class="form-control" id="form-destination">
       </div>
       <div class="form-group">
         <label for="subject">Subject:</label>
-        <input type="text" class="form-control" name="subject">
+        <input type="text" class="form-control" id="form-subject">
       </div>
       <div class="form-group">
         <label for="body">Body:</label>
-        <textarea class="form-control" name="body"></textarea>
+        <textarea class="form-control" id="form-body"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Send</button>
-    </form>
+      <button class="btn btn-primary" id="form-send">Send</button>
+    </section>
 
   </div>
 
@@ -67,7 +63,8 @@
     </div>
   </div>
 
-  <script src="js/index.js"></script>
+  <script src="js/collectDes.js"></script>
+  <script src="js/sendDes.js"></script>
 </body>
 
 </html>
