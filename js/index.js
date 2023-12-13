@@ -13,6 +13,7 @@ $(document).ready(function () {
           dmailElement.find('.sender').text(item.sender);
           dmailElement.find('.subject').text(item.subject);
           dmailElement.find('.body').text(item.body);
+          dmailElement.css('display', 'block');
           templateDmail.parent().append(dmailElement);
         });
 
