@@ -1,5 +1,6 @@
 $(document).ready(function () {
-  setInterval(function() {
+
+  function fetchData() {
     $.ajax({
       url: '/collectDes',
       method: 'GET',
@@ -24,5 +25,8 @@ $(document).ready(function () {
         console.log('Error fetching data from /collectDes');
       }
     });
-  }, 10000);
+  }
+
+  fetchData();
+  setInterval(fetchData, 10000);
 });
