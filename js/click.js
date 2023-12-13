@@ -5,7 +5,8 @@ $(document).ready(function() {
     var subject = $(this).find('.subject').text();
     var body = $(this).find('.body').text();
 
-    $('#dmailModalLabel').text('Dmail from: ' + sender);
-    $('#dmailModal .modal-body').html('<p>Subject: ' + subject + '</p><br><br><p>Body: ' + body + '</p>');
+    $('#dmailModal .model-sender').text(sender);
+    $('#dmailModal .modal-title').text(subject);
+    $('#dmailModal .modal-body').html(body);
   });
 });
