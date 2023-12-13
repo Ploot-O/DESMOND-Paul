@@ -38,8 +38,6 @@ desmondApp.controller('sendController', function ($scope) {
       url: '/sendDes',
       method: 'POST',
       data: formData,
-      processData: false,
-      contentType: false,
       success: function(response) {
         console.log('Data sent successfully');
       },
