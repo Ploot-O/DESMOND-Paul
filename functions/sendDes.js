@@ -11,7 +11,7 @@ export async function onRequest(context) {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
-    body: urlEncodedData
+    body: JSON.stringify(data)
   });
 
   // Get the response data from the API
