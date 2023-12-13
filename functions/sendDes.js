@@ -21,13 +21,8 @@ export async function onRequest(context) {
       body: urlEncodedData
     });
 
-    if (!response.ok) {
-      console.log('Error sending data: ', response.statusText);
-      return new Response(response.statusText, { status: 501 });
-    } else {
-      const responseData = await response.json();
-      return new Response(responseData, { status: 200 });
-    }
+    // Return the response from the receiving api.
+    return new Response(response.body, { status: response.status, headers: response.headers });
 
   } catch (error) {
     return new Response(error.message || 'Unknown error', { status: 500 });
