@@ -7,10 +7,6 @@ export async function onRequest(context) {
   // Send the data to the receiving api at the destination.
   const response = await fetch(`https://${data.destination}/receiveDes`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
     body: JSON.stringify(data)
   });
 
