@@ -1,5 +1,7 @@
 var desmondApp = angular.module('desmondApp', []);
-desmondApp.controller('desmondController', function ($scope) {
+
+desmondApp.controller('dmailController', function ($scope) {
+
   $.ajax({
     url: '/collectDes',
     method: 'GET',
@@ -15,4 +17,30 @@ desmondApp.controller('desmondController', function ($scope) {
       console.error('Error occurred:', textStatus);
     }
   });
+
+});
+
+desmondApp.controller('sendController', function ($scope) {
+
+  $scope.newDmail = {
+    sender: 'desmond-1ov.pages.dev',
+    receiver: '',
+    subject: '',
+    body: ''
+  };
+  $scope.sendData = function () {
+    $.ajax({
+      url: '/sendDes',
+      method: 'POST',
+      data: JSON.stringify($scope.newDmail),
+      contentType: 'application/json',
+      success: function (response) {
+        console.log('Data sent successfully');
+      },
+      error: function (jqXHR, textStatus) {
+        console.error('Error occurred:', textStatus);
+      }
+    });
+  };
+
 });
