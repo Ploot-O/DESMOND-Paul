@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     console.log(sender, subject, body);
 
-    $('#dmailModal .model-sender').text(sender);
+    $('#dmailModal .modal-sender').text(sender);
     $('#dmailModal .modal-title').text(subject);
     $('#dmailModal .modal-body').html(body);
   });
