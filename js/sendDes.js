@@ -3,7 +3,7 @@ $(document).ready(function() {
     e.preventDefault();
 
     var data = {
-      sender: window.location.href.replace('https://', '').slice(0, -1),
+      sender: window.location.href.replace('https:', '').replace('/', ''),
       destination: $('#form-destination').val(),
       subject: $('#form-subject').val(),
       body: $('#form-body').val(),
