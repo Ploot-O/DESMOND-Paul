@@ -14,5 +14,5 @@ export async function onRequest(context) {
     .bind(data.sender, data.subject, data.body).run();
 
   // Respond saying that the data was received.
-  return new Response(JSON.stringify({ message: 'Received.' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  return new Response(JSON.stringify({ message: 'Received.', echo: data }), { status: 200, headers: { 'Content-Type': 'application/json' } });
 }
