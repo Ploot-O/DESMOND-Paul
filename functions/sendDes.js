@@ -17,6 +17,8 @@ export async function onRequest(context) {
   // Get the response data from the API
   const responseData = await response.json();
 
+  console.log(responseData);
+
   // Return the response from the receiving api.
   return new Response(JSON.stringify(responseData), { status: response.status });
 }
