@@ -7,8 +7,8 @@ $(document).ready(function() {
 
     console.log(sender, subject, body);
 
-    $('#dmailModal .modal-sender').text(sender);
-    $('#dmailModal .modal-title').text(subject);
+    $('#dmailModal .modal-subject').text(subject);
+    $('#dmailModal .modal-sender').text('From: ' + sender);
     $('#dmailModal .modal-body').html(body);
 
     $('#dmailModal').modal('show');
