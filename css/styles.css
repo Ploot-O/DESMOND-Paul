@@ -11,3 +11,21 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+
+.sender,
+.subject,
+.body {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sender {
+  font-weight: bold;
+}
+.subject {
+  font-weight: 400;
+}
+.body {
+  font-weight: 300;
+}
