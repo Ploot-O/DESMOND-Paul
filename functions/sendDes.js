@@ -13,7 +13,7 @@ export async function onRequest(context) {
       if (response.ok) {
         return new Response('Success', { status: 200 });
       } else {
-        throw new Error(response);
+        throw new Error(JSON.stringify(response));
       }
     } else {
       throw new Error('Invalid request method');
