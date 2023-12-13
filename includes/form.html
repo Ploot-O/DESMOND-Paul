@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sendDmailModal">
+  Send Dmail
+</button>
+
+<div class="modal fade" id="sendDmailModal" tabindex="-1" role="dialog" aria-labelledby="sendDmailModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="sendDmailModalLabel">Send Dmail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <section>
+          <div class="form-group">
+            <label for="destination">Destination:</label>
+            <input type="text" class="form-control" id="form-destination">
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject:</label>
+            <input type="text" class="form-control" id="form-subject">
+          </div>
+          <div class="form-group">
+            <label for="body">Body:</label>
+            <textarea class="form-control" id="form-body"></textarea>
+          </div>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="form-send">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

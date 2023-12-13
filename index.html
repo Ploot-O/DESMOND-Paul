@@ -15,56 +15,21 @@
 
 <body ng-app="desmondApp">
 
-  <div style="margin: 15px;"></div>
+  <p>Hello World!</p>
 
-  <div class="container">
-
-    <section>
-      <div class="form-group">
-        <label for="sender">Destination:</label>
-        <input type="text" class="form-control" id="form-destination">
-      </div>
-      <div class="form-group">
-        <label for="subject">Subject:</label>
-        <input type="text" class="form-control" id="form-subject">
-      </div>
-      <div class="form-group">
-        <label for="body">Body:</label>
-        <textarea class="form-control" id="form-body"></textarea>
-      </div>
-      <button class="btn btn-primary" id="form-send">Send</button>
-    </section>
-
-  </div>
-
-  <div style="margin: 15px;"></div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <!-- Add to DOM here -->
-        <div class="card" id="templateDmail" style="display: none;">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-5">
-                <p class="card-title sender">sender</p>
-              </div>
-              <div class="col-md-3">
-                <p class="card-text subject">subject</p>
-              </div>
-              <div class="col-md-4">
-                <p class="card-text body">body</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End add to DOM -->
-      </div>
-    </div>
-  </div>
-
+  <script>
+    $(document).ready(function () {
+      $.get("feed.html", function (data) {
+        $("body").append(data);
+      });
+      $.get("form.html", function (data) {
+        $("body").append(data);
+      });
+    });
+  </script>
   <script src="js/refresh.js"></script>
   <script src="js/send.js"></script>
+  <script src="js/click.js"></script>
 </body>
 
 </html>

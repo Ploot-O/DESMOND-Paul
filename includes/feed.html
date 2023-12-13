@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Add to DOM here -->
+      <div class="card" id="templateDmail" style="display: none;">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-5">
+              <p class="card-text sender">sender</p>
+            </div>
+            <div class="col-md-3">
+              <p class="card-text subject">subject</p>
+            </div>
+            <div class="col-md-4">
+              <p class="card-text body">body</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End add to DOM -->
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emailModalLabel">Email Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="modal-sender"></p>
+        <p id="modal-destination"></p>
+        <p id="modal-subject"></p>
+        <p id="modal-body"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
