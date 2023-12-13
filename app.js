@@ -31,6 +31,7 @@ desmondApp.controller('sendController', function ($scope) {
   $scope.sendData = function() {
     var data = {
       sender: $scope.newDmail.sender,
+      receiver: $scope.newDmail.receiver,
       subject: $scope.newDmail.subject,
       body: $scope.newDmail.body
     };
