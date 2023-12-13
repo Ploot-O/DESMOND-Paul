@@ -5,16 +5,19 @@ export async function onRequest(context) {
     var data = {};
     for (let pair of formData.entries()) { data[pair[0]] = pair[1]; }
 
-    // Create new FormData object to send as body in fetch request
-    const fetchFormData = new FormData();
+    // Format the data as a URL-encoded string
+    const urlEncodedData = new URLSearchParams();
     for (let key in data) {
-      fetchFormData.append(key, data[key]);
+      urlEncodedData.append(key, data[key]);
     }
 
     // Send the data to the receiving api at the destination.
     const response = await fetch(`https://${data.destination}/receiveDes`, {
       method: 'POST',
-      body: fetchFormData
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: urlEncodedData
     });
 
     if (!response.ok) {
