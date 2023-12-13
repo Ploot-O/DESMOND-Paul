@@ -1,6 +1,7 @@
 export async function onRequest(context) {
   console.log('Request received');
   console.log(context.request);
+  console.log(JSON.stringify(context.request));
   const request = context.request;
   const formData = await request.formData();
   const body = Object.fromEntries(formData.entries());
@@ -10,7 +11,7 @@ export async function onRequest(context) {
     formBody.append(property, body[property]);
   }
 
-  return formBody.toString();
+  return 'Done'
 
   // const response = await fetch(`https://${body.receiver}/receiveDes`, {
   //   method: 'POST',
