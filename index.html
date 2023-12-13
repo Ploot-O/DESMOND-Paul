@@ -24,9 +24,17 @@
       <div class="col-md-12" ng-repeat="dmail in dmails">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{dmail.sender}}</h5>
-            <p class="card-text">{{dmail.subject}}</p>
-            <p class="card-text">{{dmail.body}}</p>
+            <div class="row">
+              <div class="col-md-2">
+                <h5 class="card-title">{{dmail.sender}}</h5>
+              </div>
+              <div class="col-md-4">
+                <p class="card-text">{{dmail.subject}}</p>
+              </div>
+              <div class="col-md-6">
+                <p class="card-text">{{dmail.body}}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
