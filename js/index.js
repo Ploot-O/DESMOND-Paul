@@ -24,3 +24,25 @@ $(document).ready(function () {
     }
   });
 });
+
+$(document).ready(function () {
+
+  $('#sendDes').on('submit', function(e) {
+    e.preventDefault();
+    var formData = $(this).serialize();
+
+    $.ajax({
+      url: '/sendDes',
+      method: 'POST',
+      data: formData,
+      success: function(response) {
+        console.log(response);
+        location.reload();
+      },
+      error: function() {
+        console.log('Error sending data');
+      }
+    });
+  });
+
+});

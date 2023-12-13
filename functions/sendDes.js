@@ -21,8 +21,11 @@ export async function onRequest(context) {
       body: urlEncodedData
     });
 
+    // Get the response data from the API
+    const responseData = await response.json();
+
     // Return the response from the receiving api.
-    return new Response(JSON.stringify({ "response": response }, { status: response.status }));
+    return new Response(JSON.stringify(responseData), { status: response.status });
 
   } catch (error) {
     return new Response(error.message || 'Unknown error', { status: 500 });
