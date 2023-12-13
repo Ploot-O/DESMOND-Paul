@@ -12,6 +12,7 @@ $(document).ready(function () {
           var dmailElement = templateDmail.clone(true);
           dmailElement.attr('id', item.id);
           dmailElement.find('.sender').text(item.sender);
+          dmailElement.find('.destination').text(item.destination);
           dmailElement.find('.subject').text(item.subject);
           dmailElement.find('.body').text(item.body);
           dmailElement.css('display', 'block');
