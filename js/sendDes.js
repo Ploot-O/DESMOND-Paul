@@ -10,7 +10,7 @@ $(document).ready(function() {
     };
 
     $.ajax({
-      url: window.location.href + '/sendDes',
+      url: window.location.href + 'sendDes',
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(data),
