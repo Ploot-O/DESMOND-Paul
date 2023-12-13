@@ -8,6 +8,7 @@ $(document).ready(function () {
 
         var templateDmail = $('#templateDmail');
         data.results.forEach(function (item) {
+          console.log(item);
           var dmailElement = templateDmail.clone(true);
           dmailElement.attr('id', item.id);
           dmailElement.find('.sender').text(item.sender);
