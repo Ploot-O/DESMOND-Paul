@@ -3,9 +3,9 @@ $(document).ready(function() {
     e.preventDefault();
 
     var senderUrl = window.location.href;
-    senderUrl = senderUrl.replace(/https:\/\//, ''); // Remove 'https://'
-    senderUrl = senderUrl.replace(/\//g, ''); // Remove all slashes
-    
+    senderUrl = senderUrl.replace(/https:\/\//, '');
+    senderUrl = senderUrl.replace(/\//g, '');
+
     var data = {
       sender: senderUrl,
       destination: $('#form-destination').val(),
