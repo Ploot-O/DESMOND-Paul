@@ -28,16 +28,22 @@ desmondApp.controller('sendController', function ($scope) {
     subject: '',
     body: ''
   };
-  $scope.sendData = function () {
+  $scope.sendData = function() {
+    var formData = new FormData();
+    formData.append('sender', $scope.newDmail.sender);
+    formData.append('subject', $scope.newDmail.subject);
+    formData.append('body', $scope.newDmail.body);
+
     $.ajax({
       url: '/sendDes',
       method: 'POST',
-      data: JSON.stringify($scope.newDmail),
-      contentType: 'application/json',
-      success: function (response) {
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response) {
         console.log('Data sent successfully');
       },
-      error: function (jqXHR, textStatus) {
+      error: function(jqXHR, textStatus) {
         console.error('Error occurred:', textStatus);
       }
     });
