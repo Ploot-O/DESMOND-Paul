@@ -10,17 +10,19 @@ export async function onRequest(context) {
         formBody.append(property, body[property]);
       }
 
-      const response = await fetch(`https://${body.receiver}/receiveDes`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: formBody
-      });
+      return 'Success'
 
-      if (response.ok) {
-        return new Response('Data sent successfully', { status: 200 });
-      } else {
-        throw new Error('Failed to post data');
-      }
+      // const response = await fetch(`https://${body.receiver}/receiveDes`, {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      //   body: formBody
+      // });
+
+      // if (response.ok) {
+      //   return new Response('Data sent successfully', { status: 200 });
+      // } else {
+      //   throw new Error('Failed to post data');
+      // }
     } else {
       throw new Error('Invalid request method');
     }
