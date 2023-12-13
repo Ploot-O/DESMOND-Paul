@@ -5,13 +5,16 @@ export async function onRequest(context) {
     var data = {};
     for (let pair of formData.entries()) { data[pair[0]] = pair[1]; }
 
+    // Create new FormData object to send as body in fetch request
+    const fetchFormData = new FormData();
+    for (let key in data) {
+      fetchFormData.append(key, data[key]);
+    }
+
     // Send the data to the receiving api at the destination.
     const response = await fetch(`https://${data.destination}/receiveDes`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
+      body: fetchFormData
     });
 
     if (!response.ok) {
