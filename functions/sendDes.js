@@ -22,7 +22,7 @@ export async function onRequest(context) {
     });
 
     // Return the response from the receiving api.
-    return new Response({"response_from_destination": JSON.stringify(response)}, { status: response.status });
+    return new Response(response, { status: response.status, headers: response.headers });
 
   } catch (error) {
     return new Response(error.message || 'Unknown error', { status: 500 });
