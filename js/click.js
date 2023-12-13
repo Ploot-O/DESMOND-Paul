@@ -5,6 +5,8 @@ $(document).ready(function() {
     var subject = $(this).find('.subject').text();
     var body = $(this).find('.body').text();
 
+    console.log(sender, subject, body);
+
     $('#dmailModal .model-sender').text(sender);
     $('#dmailModal .modal-title').text(subject);
     $('#dmailModal .modal-body').html(body);
