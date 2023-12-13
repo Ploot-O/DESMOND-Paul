@@ -3,8 +3,8 @@ export async function onRequest(context) {
     // Process and get data from the form submission.
     const formData = await context.request.formData();
     var data = {};
-    for (let pair of formData.entries()) { 
-      data[pair[0]] = pair[1]; 
+    for (let pair of formData.entries()) {
+      data[pair[0]] = pair[1];
     }
 
     console.log('Form data processed:', data);
@@ -16,14 +16,10 @@ export async function onRequest(context) {
     }
 
     // Prepare the database statement
-    const ps = context.env.DB.prepare(`INSERT INTO dmails (id, sender, subject, body) VALUES (?, ?, ?)`);
+    const db_response = await context.env.DB.prepare(`INSERT INTO dmails (sender, subject, body) VALUES (?1, ?2, ?3)`)
+      .bind(data.sender, data.subject, data.body).run();
 
-    console.log('Database statement prepared');
-
-    // Execute the statement
-    await ps.run(0, data.sender, data.subject, data.body);
-
-    console.log('Database statement executed');
+    console.log('Database statement executed', db_response);
 
     return new Response('Success', { status: 200 });
   } catch (err) {
