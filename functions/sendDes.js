@@ -27,6 +27,8 @@ export async function onRequest(context) {
       console.log('Response:', responseData);
     }
 
+    return new Response('Success', { status: 200 });
+
   } catch (error) {
     return new Response(error.message || 'Unknown error', { status: 500 });
   }
