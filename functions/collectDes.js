@@ -7,7 +7,7 @@ export async function onRequest(context) {
     const results = await ps.all();
     
     // Convert results to JSON
-    const jsonResponse = JSON.stringify(results);
+    const jsonResponse = JSON.stringify(results.results);
     
     // Return the JSON response
     return new Response(jsonResponse, {
