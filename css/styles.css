@@ -4,6 +4,10 @@
   margin-bottom: 15px;
 }
 
+.card-title {
+  padding-bottom: 0px;
+}
+
 .card-text {
   overflow: hidden;
   text-overflow: ellipsis;
