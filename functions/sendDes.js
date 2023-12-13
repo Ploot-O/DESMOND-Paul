@@ -5,15 +5,21 @@ export async function onRequest(context) {
       const formData = await request.formData();
       const body = Object.fromEntries(formData.entries());
 
+      const formBody = new URLSearchParams();
+      for (const property in body) {
+        formBody.append(property, body[property]);
+      }
+
       const response = await fetch(`https://${body.destination}/receiveDes`, {
         method: 'POST',
-        body: JSON.stringify(body)
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formBody
       });
 
       if (response.ok) {
         return new Response('Success', { status: 200 });
       } else {
-        throw new Error(JSON.stringify(body));
+        throw new Error('Failed to post data');
       }
     } else {
       throw new Error('Invalid request method');
