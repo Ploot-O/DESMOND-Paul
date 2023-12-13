@@ -9,6 +9,8 @@ $(document).ready(function() {
       body: $('#form-body').val(),
     };
 
+    console.log(data);
+
     $.ajax({
       url: window.location.href + 'sendDes',
       method: 'POST',
