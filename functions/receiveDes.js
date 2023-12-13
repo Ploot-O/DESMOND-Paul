@@ -12,15 +12,23 @@ export async function onRequest(context) {
       return new Response('Error: sender, subject, or body is missing', { status: 400 });
     }
 
-    // Prepare the database statement
-    const db_response = await context.env.DB.prepare(`INSERT INTO dmails (sender, subject, body) VALUES (?1, ?2, ?3)`)
-      .bind(data.sender, data.subject, data.body).run();
+    try {
+
+      // Prepare the database statement
+      const db_response = await context.env.DB.prepare(`INSERT INTO dmails (sender, subject, body) VALUES (?1, ?2, ?3)`)
+        .bind(data.sender, data.subject, data.body).run();
+
+    } catch (dbError) {
+
+      return new Response(dbError.message, { status: 500, headers: { 'Content-Type': 'application/json' } });
+
+    }
 
     // Respond saying that the data was received and logged.
-    return new Response({ message: 'Received and Logged.', status: 200 });
+    return new Response(JSON.stringify({ message: 'Received and Logged.' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
 
   } catch (err) {
     // Respond with an error message if something went wrong.
-    return new Response(err.message, { status: 501, headers: { 'Content-Type': 'application/json' } });
+    return new Response(JSON.stringify({ error: err.message }), { status: 501, headers: { 'Content-Type': 'application/json' } });
   }
 }
