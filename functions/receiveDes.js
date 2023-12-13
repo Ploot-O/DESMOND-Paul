@@ -5,8 +5,8 @@ export async function onRequest(context) {
   console.log(data);
 
   // Check if sender, subject, and body exist in the data object
-  if (!data.sender || !data.subject || !data.body) {
-    return new Response(JSON.stringify({ message: 'Error: sender, subject, or body is missing.' }), { status: 400 });
+  if (!data.destination || !data.sender || !data.subject || !data.body) {
+    return new Response(JSON.stringify({ message: 'Error: sender, destination, subject, or body is missing.' }), { status: 400 });
   }
 
   // Prepare the database statement
