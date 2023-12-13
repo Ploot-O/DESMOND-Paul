@@ -1,8 +1,7 @@
 export async function onRequest(context) {
   try {
-    console.log(context);
-    console.log(context.request);
-    console.log(JSON.stringify(context.request));
+    console.log(await context.request.formData());
+    console.log(JSON.stringify(await context.request.formData()));
     // Process and get data from the form submission.
     const formData = await context.request.formData();
     var data = {};
