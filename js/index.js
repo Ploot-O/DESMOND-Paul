@@ -1,18 +1,28 @@
-$(document).ready(function() {
-
+$(document).ready(function () {
   $.ajax({
     url: '/collectDes',
     method: 'GET',
-    success: function(data) {
-      console.log(data);
+    success: function (data) {
+
+      if (data.success && data.results.length > 0) {
+
+        var templateDmail = $('#templateDmail');
+        data.results.forEach(function (item) {
+          var dmailElement = templateDmail.clone(true);
+          dmailElement.attr('id', item.id);
+          dmailElement.find('.sender').text(item.sender);
+          dmailElement.find('.subject').text(item.subject);
+          dmailElement.find('.body').text(item.body);
+          templateDmail.parent().append(dmailElement);
+        });
+
+      } else {
+        console.log('No data found or not a success');
+      }
+
     },
-    error: function() {
+    error: function () {
       console.log('Error fetching data from /collectDes');
     }
   });
-
-});
-
-$(document).read(function () {
-
 });
