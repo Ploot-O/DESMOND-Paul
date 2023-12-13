@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DESMOND</title>
+  <title>DESMOND Client</title>
+  <!-- Import jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Import Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- Import AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <!-- Import Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Import Angular Logic -->
+  <script src="app.js"></script>
 </head>
-<body>
-  
+
+<body ng-app="desmondApp" ng-controller="desmondController">
+
+  <section ng-repeat="dmail in dmails">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>{{dmail.sender}}</h1>
+          <h3>{{dmail.subject}}</h3>
+          <p>{{dmail.body}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/index.js"></script>
 </body>
+
 </html>
