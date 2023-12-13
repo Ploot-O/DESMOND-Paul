@@ -6,18 +6,20 @@ export async function onRequest(context) {
     for (let pair of formData.entries()) { data[pair[0]] = pair[1]; }
 
     // Send the data to the receiving api at the destination.
-    $.ajax({
-      url: `https://${data.destination}/receiveDes`,
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify(data),
-      success: function (response) {
-        console.log('Response:', response);
+    const response = await fetch(`https://${data.destination}/receiveDes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
       },
-      error: function (error) {
-        console.log('Error sending data: ', error);
-      }
+      body: JSON.stringify(data)
     });
+
+    if (!response.ok) {
+      console.log('Error sending data: ', response.statusText);
+    } else {
+      const responseData = await response.json();
+      console.log('Response:', responseData);
+    }
 
   } catch (error) {
     return new Response(error.message || 'Unknown error', { status: 500 });
