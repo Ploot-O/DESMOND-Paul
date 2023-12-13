@@ -14,7 +14,7 @@ angular.module('desmondApp', [])
 
   $.ajax(settings)
     .done(function(response) {
-      scope.dmails = response;
+      scope.dmails = response.results;
     })
     .fail(function(jqXHR, textStatus) {
       console.error('Error occurred:', textStatus);
