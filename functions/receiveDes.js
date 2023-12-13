@@ -7,11 +7,8 @@ export async function onRequest(context) {
       data[pair[0]] = pair[1];
     }
 
-    console.log('Form data processed:', data);
-
     // Check if sender, subject, and body exist in the data object
     if (!data.sender || !data.subject || !data.body) {
-      console.log('Error: sender, subject, or body is missing in the form data');
       return new Response('Error: sender, subject, or body is missing', { status: 400 });
     }
 
@@ -19,12 +16,11 @@ export async function onRequest(context) {
     const db_response = await context.env.DB.prepare(`INSERT INTO dmails (sender, subject, body) VALUES (?1, ?2, ?3)`)
       .bind(data.sender, data.subject, data.body).run();
 
-    console.log('Database statement executed.');
+    // Respond saying that the data was received and logged.
+    return new Response({ message: 'Received and Logged.', status: 200 });
 
-    return new Response({ message: 'Success', status: 200 });
   } catch (err) {
-    console.log('Error:', err.message);
-    const errorResponse = JSON.stringify({ error: err.message });
-    return new Response(errorResponse, { status: 400, headers: { 'Content-Type': 'application/json' } });
+    // Respond with an error message if something went wrong.
+    return new Response(err.message, { status: 501, headers: { 'Content-Type': 'application/json' } });
   }
 }
