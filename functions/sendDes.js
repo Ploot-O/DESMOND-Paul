@@ -5,7 +5,7 @@ export async function onRequest(context) {
     var data = {};
     for (let pair of formData.entries()) { data[pair[0]] = pair[1]; }
 
-    // Format the data as a URL-encoded string
+    // Format the data as a URL-encoded string for form sending.
     const urlEncodedData = new URLSearchParams();
     for (let key in data) {
       urlEncodedData.append(key, data[key]);
@@ -15,19 +15,19 @@ export async function onRequest(context) {
     const response = await fetch(`https://${data.destination}/receiveDes`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
       },
       body: urlEncodedData
     });
 
     if (!response.ok) {
       console.log('Error sending data: ', response.statusText);
+      return new Response(response.statusText, { status: 501 });
     } else {
       const responseData = await response.json();
-      console.log('Response:', responseData);
+      return new Response(responseData, { status: 200 });
     }
-
-    return new Response('Success', { status: 200 });
 
   } catch (error) {
     return new Response(error.message || 'Unknown error', { status: 500 });

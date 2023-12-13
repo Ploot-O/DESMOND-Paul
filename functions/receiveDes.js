@@ -21,7 +21,7 @@ export async function onRequest(context) {
 
     console.log('Database statement executed.');
 
-    return new Response('Success', { status: 200 });
+    return new Response({ message: 'Success', status: 200 });
   } catch (err) {
     console.log('Error:', err.message);
     const errorResponse = JSON.stringify({ error: err.message });
