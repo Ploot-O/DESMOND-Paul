@@ -19,7 +19,7 @@ export async function onRequest(context) {
     const db_response = await context.env.DB.prepare(`INSERT INTO dmails (sender, subject, body) VALUES (?1, ?2, ?3)`)
       .bind(data.sender, data.subject, data.body).run();
 
-    console.log('Database statement executed', db_response);
+    console.log('Database statement executed.');
 
     return new Response('Success', { status: 200 });
   } catch (err) {
