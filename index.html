@@ -19,20 +19,15 @@
 
   <script>
     $(document).ready(function () {
-      $.get("feed.html", function (data) {
-        $("body").append(data);
-      });
-      $(document).ready(function () {
-        $.ajax({
-          url: "form.html",
-          method: "GET",
-          success: function (data) {
-            $("body").append(data);
-          },
-          error: function () {
-            console.log('Error fetching form.html');
-          }
-        });
+      $.ajax({
+        url: "form.html",
+        method: "GET",
+        success: function (data) {
+          $("body").append(data);
+        },
+        error: function () {
+          console.log('Error fetching form.html');
+        }
       });
     });
   </script>
