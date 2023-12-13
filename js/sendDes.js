@@ -2,8 +2,11 @@ $(document).ready(function() {
   $('#form-send').click(function(e) {
     e.preventDefault();
 
+    var senderUrl = window.location.href;
+    senderUrl = senderUrl.replace('/', '');
+    senderUrl = senderUrl.replace('http:', '');
     var data = {
-      sender: window.location.href.replace('https:', '').replace('/', ''),
+      sender: senderUrl,
       destination: $('#form-destination').val(),
       subject: $('#form-subject').val(),
       body: $('#form-body').val(),
