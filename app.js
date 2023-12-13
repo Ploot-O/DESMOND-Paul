@@ -29,15 +29,17 @@ desmondApp.controller('sendController', function ($scope) {
     body: ''
   };
   $scope.sendData = function() {
-    var formData = new FormData();
-    formData.append('sender', $scope.newDmail.sender);
-    formData.append('subject', $scope.newDmail.subject);
-    formData.append('body', $scope.newDmail.body);
+    var data = {
+      sender: $scope.newDmail.sender,
+      subject: $scope.newDmail.subject,
+      body: $scope.newDmail.body
+    };
 
     $.ajax({
       url: '/sendDes',
       method: 'POST',
-      data: formData,
+      data: $.param(data),
+      contentType: 'application/x-www-form-urlencoded',
       success: function(response) {
         console.log('Data sent successfully');
       },
