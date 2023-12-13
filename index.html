@@ -18,14 +18,14 @@
   <p>Hello World!</p>
 
   <script>
-
-    $.get("includes/form.html", function (data) {
-      $("body").append(data);
+    $(document).ready(function() {
+      $.get("includes/form.html", function(data) {
+        $("body").append(data);
+      });
+      $.get("includes/feed.html", function(data) {
+        $("body").append(data);
+      });
     });
-    $.get("includes/feed.html", function (data) {
-      $("body").append(data);
-    });
-
   </script>
   <script src="js/refresh.js"></script>
   <script src="js/send.js"></script>

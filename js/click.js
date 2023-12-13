@@ -10,5 +10,7 @@ $(document).ready(function() {
     $('#dmailModal .modal-sender').text(sender);
     $('#dmailModal .modal-title').text(subject);
     $('#dmailModal .modal-body').html(body);
+
+    $('#dmailModal').modal('show');
   });
 });
