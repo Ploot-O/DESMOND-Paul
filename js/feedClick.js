@@ -19,10 +19,8 @@ $.get("includes/feed.html", function (data) {
   $('#deleteMail').click(function (event) {
     event.stopPropagation();
 
-    var card = $(this).closest('.modal-id');
-    var cardId = card.text();
+    var cardId = $('#dmailModal .modal-id').text();
 
-    card.remove();
 
     $.ajax({
       url: '/removeDes',
@@ -31,6 +29,7 @@ $.get("includes/feed.html", function (data) {
       data: JSON.stringify({ id: cardId }),
       success: function (response) {
         console.log(response);
+        $('#' + cardId).remove();
       },
       error: function (error) {
         console.log(error);
