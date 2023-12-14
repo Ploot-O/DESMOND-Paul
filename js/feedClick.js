@@ -15,7 +15,7 @@ $.get("includes/feed.html", function (data) {
     $('#dmailModal').modal('show');
   });
 
-  $('.fa-trash').click(function (event) {
+  $('#deleteMail').click(function (event) {
     event.stopPropagation();
 
     var card = $(this).closest('.card');
