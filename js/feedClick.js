@@ -19,7 +19,7 @@ $.get("includes/feed.html", function (data) {
   $('#deleteMail').click(function (event) {
     event.stopPropagation();
 
-    var card = $(this).closest('#dmailModal .modal-id');
+    var card = $(this).closest('.modal-id');
     var cardId = card.text();
 
     card.remove();
