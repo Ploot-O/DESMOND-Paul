@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-md-12">
       <!-- Add to DOM here -->
-      <div class="card" id="templateDmail" style="display: none;" data-toggle="modal" data-target="#dmailModal">
+      <div class="card" id="templateDmail" data-toggle="modal" data-target="#dmailModal">
         <div class="card-body">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
               <p class="card-text sender">sender</p>
             </div>
             <div class="col-md-3">
               <p class="card-text subject">subject</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <p class="card-text body">body</p>
             </div>
           </div>
@@ -32,10 +32,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <h3 class="modal-sender"></h3>
-      <div class="modal-body"></div>
+      <div class="modal-body">
+        <strong>
+          <p class="modal-sender"></p>
+        </strong>
+        <p class="modal-messagebody"></p>
+      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" id="deleteMail">Delete</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close Dmail</button>
       </div>
     </div>
   </div>

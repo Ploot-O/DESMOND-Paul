@@ -11,38 +11,32 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <!-- Import Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- Import Font CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <!-- Import Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
 
-  <p>Hello World!</p>
+  <header id="header"></header>
+
+  <section id="feed"></section>
 
   <script>
-    $(document).ready(function () {
-      $.get("includes/form.html", function (data) {
-        $("body").append(data);
-      });
-      $.get("includes/feed.html", function (data) {
-        $("body").append(data);
-        $('.card').click(function () {
-          console.log('click');
-          var sender = $(this).find('.sender').text();
-          var subject = $(this).find('.subject').text();
-          var body = $(this).find('.body').text();
-
-          console.log(sender, subject, body);
-
-          $('#dmailModal .modal-sender').text(sender);
-          $('#dmailModal .modal-title').text(subject);
-          $('#dmailModal .modal-body').html(body);
-
-          $('#dmailModal').modal('show');
-        });
-      });
+    $.get("includes/header.html", function (data) {
+      $("#header").append(data);
+    });
+    $.get("includes/form.html", function (data) {
+      $("body").append(data);
+    });
+    $.get("includes/feed.html", function (data) {
+      $("body").append(data);
     });
   </script>
-  <script src="js/refresh.js"></script>
-  <script src="js/send.js"></script>
+  <script src="js/feedRefresh.js"></script>
+  <script src="js/sendMail.js"></script>
+  <script src="js/feedClick.js"></script>
 </body>
 
 </html>
