@@ -1,4 +1,5 @@
-$(document).ready(function () {
+$.get("includes/feed.html", function (data) {
+  $("body").append(data);
   $('.card').click(function () {
 
     var sender = $(this).find('.sender').text();
@@ -27,13 +28,14 @@ $(document).ready(function () {
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify({ id: cardId }),
-      success: function(response) {
+      success: function (response) {
         console.log(response);
       },
-      error: function(error) {
+      error: function (error) {
         console.log(error);
       }
     });
   });
+
 
 });
