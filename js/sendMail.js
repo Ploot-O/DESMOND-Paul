@@ -1,5 +1,8 @@
-$(document).ready(function() {
-  $('#form-send').click(function(e) {
+
+$.get("includes/header.html", function (data) {
+  $("#header").append(data);
+
+  $('#form-send').click(function (e) {
     e.preventDefault();
 
     var senderUrl = window.location.href;
@@ -20,11 +23,11 @@ $(document).ready(function() {
       method: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(data),
-      success: function(response) {
+      success: function (response) {
         console.log('Success:', response);
         alert('Success!');
       },
-      error: function(error) {
+      error: function (error) {
         console.log('Error:', error);
         alert('Error!');
       }
@@ -35,4 +38,9 @@ $(document).ready(function() {
     $('#form-body').val('');
 
   });
+
+});
+
+$.get("includes/form.html", function (data) {
+  $("body").append(data);
 });
