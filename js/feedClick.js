@@ -8,6 +8,7 @@ $.get("includes/feed.html", function (data) {
 
     console.log(sender, subject, body);
 
+    $('#dmailModal .modal-id').text($(this).attr('id'));
     $('#dmailModal .modal-subject').text(subject);
     $('#dmailModal .modal-sender').text('From: ' + sender);
     $('#dmailModal .modal-messagebody').html(body);
@@ -18,8 +19,8 @@ $.get("includes/feed.html", function (data) {
   $('#deleteMail').click(function (event) {
     event.stopPropagation();
 
-    var card = $(this).closest('.card');
-    var cardId = card.attr('id');
+    var card = $(this).closest('.modal-id');
+    var cardId = card.text();
 
     card.remove();
 
