@@ -1,3 +1,6 @@
+$.get("includes/form.html", function (data) {
+  $("body").append(data);
+});
 
 $.get("includes/header.html", function (data) {
   $("#header").append(data);
@@ -39,8 +42,4 @@ $.get("includes/header.html", function (data) {
 
   });
 
-});
-
-$.get("includes/form.html", function (data) {
-  $("body").append(data);
 });
